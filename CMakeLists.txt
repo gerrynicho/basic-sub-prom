@@ -10,17 +10,17 @@ find_package(ament_cmake REQUIRED)
 find_package(tachimawari_interfaces REQUIRED)
 find_package(prometheus-cpp CONFIG REQUIRED)
 
-add_executable(first_sub src/subscriber.cpp)
-ament_target_dependencies(first_sub
+add_executable(coba src/main.cpp)
+ament_target_dependencies(coba
                             rclcpp
                             tachimawari_interfaces)
-target_link_libraries(first_sub #ROS2 library
+target_link_libraries(coba #ROS2 library
                         prometheus-cpp::push
                         prometheus-cpp::pull
                         prometheus-cpp::core)
 
 install(TARGETS
-      first_sub
+      coba
       DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
